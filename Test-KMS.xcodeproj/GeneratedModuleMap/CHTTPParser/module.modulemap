@@ -1,0 +1,4 @@
+module CHTTPParser {
+    umbrella "/Volumes/Documente/Repositories/Test-KMS/.build/checkouts/http-5976992940601425903/Sources/CHTTPParser/include"
+    export *
+}
