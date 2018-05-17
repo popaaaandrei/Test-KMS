@@ -68,7 +68,7 @@ class GoogleSession {
         }
         
         let json = try ciphertextJSON()
-        
+        print("json: \(json)")
         
         try connection.performRequest(
             method:"POST",

@@ -30,6 +30,18 @@ func main() throws {
             //            if let token = try? encoder.encode(token) {
             //                print("\(String(data:token, encoding:.utf8)!)")
             //            }
+            print("Got token")
+            
+            
+            do {
+                let google = try GoogleSession(tokenProvider: provider)
+                print("GoogleSession done")
+                try google.retrieveKeyKMS()
+                print("retrieveKeyKMS done")
+            }
+            catch {
+                print("ERROR \(error)")
+            }
             
         }
         if let error = error {
@@ -39,11 +51,7 @@ func main() throws {
     }
     
     _ = sem.wait(timeout: DispatchTime.distantFuture)
-    print("Got token")
-    let google = try GoogleSession(tokenProvider: provider)
-    print("GoogleSession done")
-    try google.retrieveKeyKMS()
-    print("retrieveKeyKMS done")
+    
     
     
 }
