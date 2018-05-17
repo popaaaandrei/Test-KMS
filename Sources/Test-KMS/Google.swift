@@ -16,33 +16,73 @@ import Foundation
 import Dispatch
 import OAuth2
 
+
 class GoogleSession {
-  var connection : Connection
-  
-  init(tokenProvider: TokenProvider) throws{
-    connection = try Connection(provider:tokenProvider)
-  }
-  
-  func getMe() throws {
-    let sem = DispatchSemaphore(value: 0)
     
-    let parameters = ["requestMask.includeField": "person.names,person.photos"]
-    var responseData : Data?
-    try connection.performRequest(
-      method:"GET",
-      urlString:"https://people.googleapis.com/v1/people/me",
-      parameters: parameters,
-      body: nil) {(data, response, error) in
-        responseData = data
-        sem.signal()
+    var connection : Connection
+    
+    init(tokenProvider: TokenProvider) throws{
+        connection = try Connection(provider:tokenProvider)
     }
-    _ = sem.wait(timeout: DispatchTime.distantFuture)
-    if let data = responseData {
-      let response = String(data: data, encoding: .utf8)!
-      print(response)
+    
+    func getMe() throws {
+        let sem = DispatchSemaphore(value: 0)
+        
+        let parameters = ["requestMask.includeField": "person.names,person.photos"]
+        var responseData : Data?
+        try connection.performRequest(
+            method:"GET",
+            urlString:"https://people.googleapis.com/v1/people/me",
+            parameters: parameters,
+            body: nil) {(data, response, error) in
+                responseData = data
+                sem.signal()
+        }
+        _ = sem.wait(timeout: DispatchTime.distantFuture)
+        if let data = responseData {
+            let response = String(data: data, encoding: .utf8)!
+            print(response)
+        }
     }
-  }
-  
+    
+    func retrieveKeyKMS() throws {
+        
+        let projectID = "tonal-history-203106"
+        let keyRing = "test-keyring-eu"
+        let keyName = "test-key"
+        
+        let ciphertext = "CiQAYQMgAbbpYA8h3miHU+QbbrfI5crc3t+0AKJbwbjcGv8iPYYSMgDoRYINeO0ATpI5rvTfAzjUu7e+XNX4d0XPWy8iVJdleGGbeuYtqgKB2XRQxKJJtS+6"
+        
+        // build URL
+        let googleKMSURL = "https://cloudkms.googleapis.com/v1/projects/\(projectID)/locations/europe-west4/keyRings/\(keyRing)/cryptoKeys/\(keyName):decrypt"
+        
+        /// convert to JSON String
+        func ciphertextJSON() throws -> Data {
+            let encoder = JSONEncoder()
+            if #available(OSX 10.12, *) {
+                encoder.dateEncodingStrategy = .iso8601
+            } else {
+                // Fallback on earlier versions
+            }
+            return try encoder.encode(["ciphertext":ciphertext])
+        }
+        
+        let json = try ciphertextJSON()
+        
+        
+        try connection.performRequest(
+            method:"POST",
+            urlString: googleKMSURL,
+            parameters: [:],
+            body: json) { (data, response, error) in
+                print("Response: \(response)")
+                print("Error: \(error)")
+        }
+        
+    }
+    
+    
+  /*
   func getPeople() throws {
     let sem = DispatchSemaphore(value: 0)
     var responseData : Data?
@@ -110,4 +150,5 @@ class GoogleSession {
       print(response)
     }
   }
+    */
 }

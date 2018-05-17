@@ -39,6 +39,9 @@ func main() throws {
     
     //_ = sem.wait(timeout: DispatchTime.distantFuture)
     
+    let google = try GoogleSession(tokenProvider: provider)
+    try google.retrieveKeyKMS()
+    
 }
 
 
