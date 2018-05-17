@@ -466,7 +466,6 @@
 		OBJ_1716 /* Bits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Bits::Bits::Product" /* Bits.framework */; };
 		OBJ_1717 /* libc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Core::libc::Product" /* libc.framework */; };
 		OBJ_1729 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_531 /* Package.swift */; };
-		OBJ_1735 /* Google.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Google.swift */; };
 		OBJ_1736 /* KMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* KMS.swift */; };
 		OBJ_1737 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* main.swift */; };
 		OBJ_1739 /* SwiftyBase64.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyBase64::SwiftyBase64::Product" /* SwiftyBase64.framework */; };
@@ -2993,7 +2992,6 @@
 		OBJ_87 /* ChaCha20+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChaCha20+Foundation.swift"; sourceTree = "<group>"; };
 		OBJ_88 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_89 /* HMAC+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HMAC+Foundation.swift"; sourceTree = "<group>"; };
-		OBJ_9 /* Google.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google.swift; sourceTree = "<group>"; };
 		OBJ_90 /* Rabbit+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rabbit+Foundation.swift"; sourceTree = "<group>"; };
 		OBJ_91 /* String+FoundationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FoundationExtension.swift"; sourceTree = "<group>"; };
 		OBJ_92 /* Utils+Foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utils+Foundation.swift"; sourceTree = "<group>"; };
@@ -5338,7 +5336,6 @@
 			isa = PBXGroup;
 			children = (
 				75FFBD4C20AE0BB1004EB291 /* OAuth2 */,
-				OBJ_9 /* Google.swift */,
 				OBJ_10 /* KMS.swift */,
 				OBJ_11 /* main.swift */,
 			);
@@ -7039,7 +7036,6 @@
 			files = (
 				75FFBD5B20AE0BB2004EB291 /* ASN1.swift in Sources */,
 				75FFBD6120AE0BB2004EB291 /* GoogleCloudMetadataTokenProvider.swift in Sources */,
-				OBJ_1735 /* Google.swift in Sources */,
 				75FFBD5F20AE0BB2004EB291 /* Connection.swift in Sources */,
 				75FFBD6320AE0BB2004EB291 /* JWT.swift in Sources */,
 				75FFBD6620AE0BB2004EB291 /* ServiceAccountTokenProvider.swift in Sources */,

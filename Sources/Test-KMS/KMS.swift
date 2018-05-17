@@ -29,8 +29,6 @@ func retrieveKeyKMS(token: String) throws -> String {
     let keyRing = "test-keyring-eu"
     let keyName = "test-key"
     
-    // let googleToken = "ya29.Gly9BeCx9ZMLxLXalKKyLcmFPLrKCyXwaXcFx8Yb4ohEtVPTNeGc04jRMW9Af4eGb_D_33wm1ih9_rxJUrXiR9TW9ZPjd5Tf0m-HKSfhnJ1XyeTtSZw0hTvGnQwPYw"
-    
     let ciphertext = "CiQAYQMgAbbpYA8h3miHU+QbbrfI5crc3t+0AKJbwbjcGv8iPYYSMgDoRYINeO0ATpI5rvTfAzjUu7e+XNX4d0XPWy8iVJdleGGbeuYtqgKB2XRQxKJJtS+6"
     
     
@@ -73,7 +71,8 @@ func retrieveKeyKMS(token: String) throws -> String {
     
     // response
     let response = try client.respond(to: req)
-    
+    print("=============================================")
+    print(response)
     guard response.status != .unauthorized else {
         throw KMSError.unauthorized
     }
@@ -94,6 +93,8 @@ extension Response {
         }
         
         let json = try JSON(bytes: bytes)
+        print("=============================================")
+        print(json)
         
         guard let plaintext = json["plaintext"]?.string, let data = Data(base64Encoded: plaintext), let key = data.asStringUTF8() else {
             throw KMSError.plaintextMissing
