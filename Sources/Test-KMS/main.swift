@@ -2,7 +2,7 @@ import Foundation
 import Dispatch
 import OAuth2
 
-print("Test-KMS: 0.2")
+print("Test-KMS: 0.3")
 
 
 /*
@@ -39,8 +39,11 @@ func main() throws {
     }
     
     _ = sem.wait(timeout: DispatchTime.distantFuture)
+    print("Got token")
     let google = try GoogleSession(tokenProvider: provider)
+    print("GoogleSession done")
     try google.retrieveKeyKMS()
+    print("retrieveKeyKMS done")
     
     
 }
