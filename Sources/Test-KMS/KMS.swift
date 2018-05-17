@@ -6,10 +6,10 @@
 //
 
 import Foundation
-//import HTTP
-//import JSON
-//import Sockets
-//import TLS
+import HTTP
+import JSON
+import Sockets
+import TLS
 
 
 
@@ -22,7 +22,7 @@ enum KMSError : Error {
 
 
 
-/*
+
 func retrieveKeyKMS() throws -> String {
     //  -> Response
     
@@ -113,5 +113,16 @@ extension Response {
     
 }
 
-*/
+
+extension Data {
+    
+    /// Data -> String UTF8
+    func asStringUTF8() -> String? {
+        return String(data: self, encoding: .utf8)
+    }
+    
+}
+
+
+
 
