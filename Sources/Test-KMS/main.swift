@@ -15,8 +15,7 @@ print("Test-KMS: 0.3")
 
 func main() throws {
     
-    let scopes = ["https://www.googleapis.com/auth/cloudkms", "https://www.googleapis.com/auth/cloud-platform"]
-    
+    let scopes = ["https://www.googleapis.com/auth/cloud-platform"]
     guard let provider = DefaultTokenProvider(scopes: scopes) else {
         print("Unable to obtain an auth token.\nTry pointing GOOGLE_APPLICATION_CREDENTIALS to your service account credentials.")
         return
