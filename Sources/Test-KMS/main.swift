@@ -22,7 +22,7 @@ func main() throws {
         return
     }
     
-    //let sem = DispatchSemaphore(value: 0)
+    let sem = DispatchSemaphore(value: 0)
     try provider.withToken() {(token, error) -> Void in
         if let token = token {
             print("Token:\n\(token)")
@@ -30,17 +30,18 @@ func main() throws {
             //            if let token = try? encoder.encode(token) {
             //                print("\(String(data:token, encoding:.utf8)!)")
             //            }
+            
         }
         if let error = error {
             print("ERROR \(error)")
         }
-        //sem.signal()
+        sem.signal()
     }
     
-    //_ = sem.wait(timeout: DispatchTime.distantFuture)
-    
+    _ = sem.wait(timeout: DispatchTime.distantFuture)
     let google = try GoogleSession(tokenProvider: provider)
     try google.retrieveKeyKMS()
+    
     
 }
 
