@@ -22,7 +22,6 @@
 /* Begin PBXBuildFile section */
 		75FFBD5B20AE0BB2004EB291 /* ASN1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFBD4D20AE0BB1004EB291 /* ASN1.swift */; };
 		75FFBD5C20AE0BB2004EB291 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFBD4E20AE0BB1004EB291 /* AuthError.swift */; };
-		75FFBD5D20AE0BB2004EB291 /* BrowserTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFBD4F20AE0BB1004EB291 /* BrowserTokenProvider.swift */; };
 		75FFBD5E20AE0BB2004EB291 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFBD5020AE0BB1004EB291 /* Code.swift */; };
 		75FFBD5F20AE0BB2004EB291 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFBD5120AE0BB1004EB291 /* Connection.swift */; };
 		75FFBD6020AE0BB2004EB291 /* DefaultTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FFBD5220AE0BB1004EB291 /* DefaultTokenProvider.swift */; };
@@ -2411,7 +2410,6 @@
 /* Begin PBXFileReference section */
 		75FFBD4D20AE0BB1004EB291 /* ASN1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASN1.swift; sourceTree = "<group>"; };
 		75FFBD4E20AE0BB1004EB291 /* AuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
-		75FFBD4F20AE0BB1004EB291 /* BrowserTokenProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserTokenProvider.swift; sourceTree = "<group>"; };
 		75FFBD5020AE0BB1004EB291 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		75FFBD5120AE0BB1004EB291 /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		75FFBD5220AE0BB1004EB291 /* DefaultTokenProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTokenProvider.swift; sourceTree = "<group>"; };
@@ -3487,7 +3485,6 @@
 			children = (
 				75FFBD4D20AE0BB1004EB291 /* ASN1.swift */,
 				75FFBD4E20AE0BB1004EB291 /* AuthError.swift */,
-				75FFBD4F20AE0BB1004EB291 /* BrowserTokenProvider.swift */,
 				75FFBD5020AE0BB1004EB291 /* Code.swift */,
 				75FFBD5120AE0BB1004EB291 /* Connection.swift */,
 				75FFBD5220AE0BB1004EB291 /* DefaultTokenProvider.swift */,
@@ -7041,7 +7038,6 @@
 			buildActionMask = 0;
 			files = (
 				75FFBD5B20AE0BB2004EB291 /* ASN1.swift in Sources */,
-				75FFBD5D20AE0BB2004EB291 /* BrowserTokenProvider.swift in Sources */,
 				75FFBD6120AE0BB2004EB291 /* GoogleCloudMetadataTokenProvider.swift in Sources */,
 				OBJ_1735 /* Google.swift in Sources */,
 				75FFBD5F20AE0BB2004EB291 /* Connection.swift in Sources */,

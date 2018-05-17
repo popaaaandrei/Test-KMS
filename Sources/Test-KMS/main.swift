@@ -1,6 +1,6 @@
 import Foundation
 import Dispatch
-import OAuth2
+
 
 print("Test-KMS: 0.3")
 
@@ -24,39 +24,36 @@ func main() throws {
     
     let sem = DispatchSemaphore(value: 0)
     try provider.withToken() {(token, error) -> Void in
-        if let token = token {
-            print("Token:\n\(token)")
-            //            let encoder = JSONEncoder()
-            //            if let token = try? encoder.encode(token) {
-            //                print("\(String(data:token, encoding:.utf8)!)")
-            //            }
-            
-            
-            
-//            do {
-//                let google = try GoogleSession(tokenProvider: provider)
-//                print("GoogleSession done")
-//                try google.retrieveKeyKMS()
-//                print("retrieveKeyKMS done")
-//            }
-//            catch {
-//                print("ERROR \(error)")
-//            }
-            
-        }
+        
         if let error = error {
             print("ERROR \(error)")
         }
+        
+        guard let token = token?.AccessToken else {
+            print("No access token")
+            return
+        }
+        
+        print("Token:\n\(token)")
+        
+        do {
+            try retrieveKeyKMS(token: token)
+            print("retrieveKeyKMS done")
+        }
+        catch {
+            print("ERROR \(error)")
+        }
+        
         sem.signal()
     }
     
     _ = sem.wait(timeout: DispatchTime.distantFuture)
     print("Got token")
-    let google = try GoogleSession(tokenProvider: provider)
-    print("GoogleSession done")
+    //let google = try GoogleSession(tokenProvider: provider)
+    //print("GoogleSession done")
     // try google.getMe()
-    try google.retrieveKeyKMS()
-    print("retrieveKeyKMS done")
+    
+    //print("retrieveKeyKMS done")
     
     
 }

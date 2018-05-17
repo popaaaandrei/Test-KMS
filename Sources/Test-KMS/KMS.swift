@@ -23,22 +23,13 @@ enum KMSError : Error {
 
 
 
-func retrieveKeyKMS() throws -> String {
-    //  -> Response
-    
-    
-    /*
-     // get secret from ENV
-     guard let key = getenv("COREKEY") else {
-     throw AppErrors.environmentNotConfigured
-     }
-     */
+func retrieveKeyKMS(token: String) throws -> String {
     
     let projectID = "tonal-history-203106"
     let keyRing = "test-keyring-eu"
     let keyName = "test-key"
     
-    let googleToken = "ya29.Gly9BeCx9ZMLxLXalKKyLcmFPLrKCyXwaXcFx8Yb4ohEtVPTNeGc04jRMW9Af4eGb_D_33wm1ih9_rxJUrXiR9TW9ZPjd5Tf0m-HKSfhnJ1XyeTtSZw0hTvGnQwPYw"
+    // let googleToken = "ya29.Gly9BeCx9ZMLxLXalKKyLcmFPLrKCyXwaXcFx8Yb4ohEtVPTNeGc04jRMW9Af4eGb_D_33wm1ih9_rxJUrXiR9TW9ZPjd5Tf0m-HKSfhnJ1XyeTtSZw0hTvGnQwPYw"
     
     let ciphertext = "CiQAYQMgAbbpYA8h3miHU+QbbrfI5crc3t+0AKJbwbjcGv8iPYYSMgDoRYINeO0ATpI5rvTfAzjUu7e+XNX4d0XPWy8iVJdleGGbeuYtqgKB2XRQxKJJtS+6"
     
@@ -54,7 +45,7 @@ func retrieveKeyKMS() throws -> String {
     let googleKMSURI = "/v1/projects/\(projectID)/locations/europe-west4/keyRings/\(keyRing)/cryptoKeys/\(keyName):decrypt"
     
     let headers: [HeaderKey : String] = [HeaderKey.contentType : "application/json",
-                                         "Authorization": "Bearer \(googleToken)"]
+                                         "Authorization": "Bearer \(token)"]
     
     // build JSON
     var json = JSON()

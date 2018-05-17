@@ -14,17 +14,18 @@
 
 import Foundation
 import Dispatch
-import OAuth2
 
 
-class GoogleSession {
-    
-    var connection : Connection
-    
-    init(tokenProvider: TokenProvider) throws{
-        connection = try Connection(provider:tokenProvider)
-    }
-    
+
+//class GoogleSession {
+//
+//    var connection : Connection
+//
+//    init(tokenProvider: TokenProvider) throws{
+//        connection = try Connection(provider:tokenProvider)
+//    }
+
+    /*
     func getMe() throws {
         let sem = DispatchSemaphore(value: 0)
         
@@ -82,6 +83,8 @@ class GoogleSession {
         }
         _ = sem.wait(timeout: DispatchTime.distantFuture)
     }
+    */
+    
     
     
   /*
@@ -153,4 +156,3 @@ class GoogleSession {
     }
   }
     */
-}
