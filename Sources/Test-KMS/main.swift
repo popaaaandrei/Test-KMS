@@ -54,7 +54,7 @@ func main() throws {
     print("Got token")
     let google = try GoogleSession(tokenProvider: provider)
     print("GoogleSession done")
-    try google.getMe()
+    // try google.getMe()
     try google.retrieveKeyKMS()
     print("retrieveKeyKMS done")
     

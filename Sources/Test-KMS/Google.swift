@@ -70,6 +70,7 @@ class GoogleSession {
         let json = try ciphertextJSON()
         print("json: \(json)")
         
+        let sem = DispatchSemaphore(value: 0)
         try connection.performRequest(
             method:"POST",
             urlString: googleKMSURL,
@@ -77,8 +78,9 @@ class GoogleSession {
             body: json) { (data, response, error) in
                 print("Response: \(response)")
                 print("Error: \(error)")
+                sem.signal()
         }
-        
+        _ = sem.wait(timeout: DispatchTime.distantFuture)
     }
     
     
