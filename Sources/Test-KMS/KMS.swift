@@ -73,7 +73,10 @@ func retrieveKeyKMS(token: String) throws -> String {
     let response = try client.respond(to: req)
     print("=============================================")
     print(response)
-    guard response.status != .unauthorized else {
+    
+    
+    // catch all 400 errors
+    guard (response.status.statusCode % 100) != 4 else {
         throw KMSError.unauthorized
     }
     
