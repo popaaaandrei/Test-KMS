@@ -29,7 +29,7 @@ func main() throws {
             print("ERROR \(error)")
         }
         
-        guard let token = token?.AccessToken else {
+        guard let token = token, let accessToken = token.AccessToken else {
             print("No access token")
             return
         }
@@ -37,7 +37,7 @@ func main() throws {
         print("Token:\n\(token)")
         
         do {
-            try retrieveKeyKMS(token: token)
+            _ = try retrieveKeyKMS(token: accessToken)
             print("retrieveKeyKMS done")
         }
         catch {
